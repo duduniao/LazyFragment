@@ -4,7 +4,7 @@ android lazy fragment in FragmentStatePagerAdapter, use a simple nested approach
 ### Usage
 
 first:
-implement your FragmentFactoryImpl
+implement your FragmentFactoryImpl:
 
     FragmentFactory fragmentFactory = new FragmentFactoryImpl();
 
