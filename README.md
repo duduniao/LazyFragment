@@ -6,8 +6,10 @@ android lazy fragment in FragmentStatePagerAdapter, use a simple nested approach
 first:
 implement your FragmentFactoryImpl
 
+    FragmentFactory fragmentFactory = new FragmentFactoryImpl();
+
 second:
-use it in FragmentStatePagerAdapter:
+use LazyFragment in FragmentStatePagerAdapter:
 
     @Override
     public Fragment getItem(int index) {
