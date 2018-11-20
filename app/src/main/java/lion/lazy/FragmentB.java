@@ -1,4 +1,4 @@
-package com.lion.lazyfragment;
+package lion.lazy;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;

@@ -1,10 +1,11 @@
-package com.lion.lazyfragment;
+package lion.lazy.lib;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class LazyFragment extends Fragment {
 //        fragmentContainer = view.findViewById(R.id.fragment_container);
         loadingTv = view.findViewById(R.id.tip_loading);
         Log.i(TAG, "onCreateView getUserVisibleHint=" + getUserVisibleHint() + ", isInit=" +
-                isInit);
+                isInit + ", fragmentName:" + fragmentName);
         return view;
 
     }
@@ -64,7 +65,7 @@ public class LazyFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         Log.i(TAG, "setUserVisibleHint() called with: " + "isVisibleToUser=" + isVisibleToUser +
-                ", isInit=" + isInit);
+                ", isInit=" + isInit + ", fragmentName:" + fragmentName);
         //if isVisibleToUser==true and isInit==false -> load target fragment
         if (isVisibleToUser && !isInit && view != null) {
             lazyLoad();
@@ -90,7 +91,7 @@ public class LazyFragment extends Fragment {
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         fragment = fragmentFactory.createFragment(fragmentName);
-        if (transaction != null && fragment != null) {
+        if (fragment != null) {
             try {
                 transaction.replace(R.id.fragment_container, fragment, fragmentName).runOnCommit(hideLoadingTvRunnable).commit();
                 isInit = true;

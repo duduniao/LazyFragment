@@ -1,4 +1,4 @@
-package com.lion.lazyfragment;
+package lion.lazy;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -8,6 +8,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+import lion.lazy.lib.FragmentFactory;
+import lion.lazy.lib.LazyFragment;
+
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = findViewById(R.id.viewpager);
         HomeFragmentPageAdapter adapter = new HomeFragmentPageAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(3);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

@@ -1,4 +1,4 @@
-package com.lion.lazyfragment;
+package lion.lazy;
 
 import org.junit.Test;
 

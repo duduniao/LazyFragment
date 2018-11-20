@@ -1,4 +1,4 @@
-package com.lion.lazyfragment;
+package lion.lazy.lib;
 
 import androidx.fragment.app.Fragment;
 

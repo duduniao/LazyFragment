@@ -1,4 +1,4 @@
-package com.lion.lazyfragment;
+package lion.lazy;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.lion.lazyfragment", appContext.getPackageName());
+        assertEquals("lion.lazy", appContext.getPackageName());
     }
 }
