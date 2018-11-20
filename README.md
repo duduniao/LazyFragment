@@ -1,7 +1,7 @@
 # LazyFragment
 android lazy fragment in FragmentStatePagerAdapter, use a simple nested approach
 
-see it at page: https://duduniao.github.io/LazyFragment/
+see it at page: (https://duduniao.github.io/LazyFragment)
 
 ### Using LazyFragment
 
