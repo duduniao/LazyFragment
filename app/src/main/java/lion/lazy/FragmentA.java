@@ -18,11 +18,6 @@ public class FragmentA extends Fragment {
         tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         tv.setText("Fragment A");
         tv.setPadding(50, 50, 0, 0);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return tv;
     }
 }

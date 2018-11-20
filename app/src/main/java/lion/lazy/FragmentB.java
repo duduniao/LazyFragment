@@ -4,6 +4,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +21,10 @@ public class FragmentB extends Fragment {
         tv.setText("Fragment B");
         tv.setPadding(50, 50, 0, 0);
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
+            for (int i = 0; i < 100; i++) {
+                Thread.sleep(10);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return tv;

@@ -57,7 +57,8 @@ public class LazyFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //two cases load target fragment：1.page resume from system recycling；2.page visible and not init
         if (savedInstanceState != null || getUserVisibleHint() && !isInit) {
-            lazyLoad();
+            view.removeCallbacks(lazyLoadRunnable);
+            view.post(lazyLoadRunnable);
         }
     }
 
@@ -68,7 +69,8 @@ public class LazyFragment extends Fragment {
                 ", isInit=" + isInit + ", fragmentName:" + fragmentName);
         //if isVisibleToUser==true and isInit==false -> load target fragment
         if (isVisibleToUser && !isInit && view != null) {
-            lazyLoad();
+            view.removeCallbacks(lazyLoadRunnable);
+            view.postDelayed(lazyLoadRunnable, 300);
         }
 
         if (fragment != null) {
@@ -89,6 +91,7 @@ public class LazyFragment extends Fragment {
             return;
         }
 
+        Log.i(TAG, "lazyLoad");
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         fragment = fragmentFactory.createFragment(fragmentName);
         if (fragment != null) {
@@ -101,6 +104,13 @@ public class LazyFragment extends Fragment {
         }
 
     }
+
+    private Runnable lazyLoadRunnable = new Runnable() {
+        @Override
+        public void run() {
+            lazyLoad();
+        }
+    };
 
     private Runnable hideLoadingTvRunnable = new Runnable() {
         @Override
